@@ -1,3 +1,4 @@
+"use client";
 import { NavigationMenu } from "@/components";
 
 export default function Home() {
