@@ -6,7 +6,35 @@ type DropDownProps = {
   title: string;
   items: {
     title: string;
+    link: string
   }[]
+}
+
+type ButtonProps = {
+  title: string;
+  toggleDropdown: () => void;
+  isOpened: boolean;
+}
+
+const Button: React.FC<ButtonProps> = ({title, toggleDropdown, isOpened}) => {
+  const Icon = isOpened ? CaretUp : CaretDown;
+
+  const background = isOpened ? 'black-300' : 'black';
+
+  return (
+    <button onClick={toggleDropdown}  title={title} type="button" 
+    className={`bg-${background} hover:bg-black-300 flex text-white items-center justify-between rounded-full pr-2`}>
+    <Image
+      className="flex-shrink-0 rounded-full object-scale-down mr-1 p-[2px]"
+      src="https://avatars.githubusercontent.com/u/48302018?v=4"
+      alt="jane avatar"
+      width={35}
+      height={35}
+    />
+    <span className="mx-1 font-bold text-sm">{title}</span>
+    <Icon size={16} color="#FFF" weight="fill"/>
+  </button>
+  )
 }
 
 export const Dropdown: React.FC<DropDownProps> = (props) => {
@@ -18,38 +46,30 @@ export const Dropdown: React.FC<DropDownProps> = (props) => {
     setIsOpened(currentState => !currentState)
   }
 
-  const Icon = isOpened ? CaretUp : CaretDown;
-
   return (
-  <div className="flex justify-center">
-    <div className="relative inline-block mb-20">
-      {/* Dropdown toggle button */}
-      <Image
-             className="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
-             src="https://avatars.githubusercontent.com/u/48302018?v=4"
-             alt="jane avatar"
-             width={9}
-             height={9}
-           />
-      <button onClick={toggleDropdown} className="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
-        <span className="mx-1">{title}</span>
-        <Icon size={12} color="#FFF" weight="fill"/>
-      </button>
-      {/* Dropdown menu */}
-      {isOpened && (
-         <div className="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl dark:bg-gray-800">
-         {items.map(item => (
-           <a
-             key={item.title}
-             href="#"
-             className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
-           >
-             {item.title}
-           </a>
-         ))}
-       </div>
-      )}
+    <div className="flex justify-center">
+      <div className="relative inline-block">
+        <Button  
+          isOpened={isOpened}
+          title={title}
+          toggleDropdown={toggleDropdown}
+        />
+        {/* Dropdown menu */}
+        {isOpened && (
+          <div className="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-black-300 rounded-md shadow-xl px-1">
+          {items.map(item => (
+            <a
+              key={item.title}
+              href={item.link}
+              target="_blank"
+              className="flex px-2 py-1 w-full text-sm text-white capitalize rounded transition-colors duration-200 transform hover:bg-white/10"
+            >
+              {item.title}
+            </a>
+          ))}
+        </div>
+        )}
+      </div>
     </div>
-  </div>
   )
 }

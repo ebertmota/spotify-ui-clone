@@ -6,10 +6,7 @@ export default function Home() {
   return (
     <main className="flex ">
       <NavigationMenu />
-      <div>
-        <Header />
-      </div>
-      <Dropdown title="Ebert Mota" items={[{title: 'Sair'}]}/>
+      <Header />
     </main>
   )
 }
