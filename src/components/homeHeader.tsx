@@ -5,7 +5,7 @@ import { HeaderNavigationButton } from "./headerNavigationButton"
 export const Header: React.FC = () => {
 
   return (
-    <header className="flex flex-row flex-1 max-h-20 items-center justify-between px-6 py-4">
+    <header className="flex flex-row flex-1 max-h-20 items-center justify-between py-4">
       <div className="flex items-center gap-3 justify-center">
         <HeaderNavigationButton icon={CaretLeft} />
         <HeaderNavigationButton icon={CaretRight} />
