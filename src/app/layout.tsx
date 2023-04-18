@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className='flex flex-col h-screen bg-gradient-to-b bg-no-repeat from-[#381232] via-black-400/[40]  to-black-400/[99.74]'>
+        <div className='flex h-full flex-col bg-gradient-to-b bg-no-repeat from-[#381232] via-black-400/[40]  to-black-400/[99.74]'>
           {children}
         </div>
       </body>

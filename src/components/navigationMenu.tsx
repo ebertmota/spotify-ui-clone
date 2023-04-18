@@ -29,7 +29,7 @@ export const NavigationMenu: React.FC = () => {
   const [activeTab, setActiveTab] = useState('Home');
 
   return (
-    <div className="bg-black flex flex-col items-start justify-start h-screen w-64 py-6 px-6">
+    <div className="bg-black flex flex-col items-start justify-start sm:min-h-full w-64 py-6 px-6">
       <Image src={spotifyLogo} alt="Spotify white logo" width={131} />
 
       <nav className='flex flex-col w-full mt-10'>

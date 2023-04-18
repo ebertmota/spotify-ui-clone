@@ -8,7 +8,7 @@ export default function Home() {
         <NavigationMenu />
         <div className="flex flex-col flex-1 px-6">
           <Header />
-          <div className="mt-8">
+          <div className="mt-8 m-auto max-w-[1940px] h-screen">
             <PlaylistSection />
           </div>
         </div>

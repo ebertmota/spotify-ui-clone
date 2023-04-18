@@ -26,13 +26,14 @@ const playlists = [
     title: 'Panic! mood',
     owner: 'Ebert Mota',
     url: 'https://open.spotify.com/playlist/3kDql3TUUM6oC1AI0Az9g9?si=9726494d24b24623',
-    cover_img: 'https://i.scdn.co/image/ab67706c0000da844ba176e626d0bf8ab52d0586'
+    cover_img: 'https://i.scdn.co/image/ab67706c0000da84d263913107eae61057c3d462'
   }
 ]
-
+// grid-cols-3 grid-rows-3
 export const PlaylistSection: React.FC = () => {
   return (
-    <div className="grid gap-4 grid-cols-3 grid-rows-3 m-auto justify-center ">
+    // <div className="grid gap-4 md:grid-cols-3 sm:grid-cols-2 m-auto justify-center ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 pb-10">
       {playlists.map(playlist => (
         <Card 
           key={playlist.title}
